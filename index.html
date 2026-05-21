@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rizki Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+font-family:'Audiowide',sans-serif;
+}
+
+body{
+background:#050505;
+color:white;
+overflow-x:hidden;
+}
+
+/* RED AURA */
+
+body::before{
+content:'';
+position:fixed;
+width:500px;
+height:500px;
+background:red;
+filter:blur(220px);
+opacity:.18;
+top:-150px;
+left:-120px;
+z-index:-1;
+}
+
+body::after{
+content:'';
+position:fixed;
+width:500px;
+height:500px;
+background:#ff0000;
+filter:blur(220px);
+opacity:.15;
+bottom:-150px;
+right:-100px;
+z-index:-1;
+}
+
+/* HEADER */
+
+header{
+width:100%;
+display:flex;
+justify-content:center;
+padding:20px;
+position:sticky;
+top:0;
+z-index:1000;
+background:rgba(0,0,0,.4);
+backdrop-filter:blur(15px);
+}
+
+nav{
+width:95%;
+max-width:1200px;
+background:#0f0f0f;
+border-radius:30px;
+padding:20px 35px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border:1px solid rgba(255,0,0,.25);
+box-shadow:
+0 0 20px rgba(255,0,0,.25),
+0 0 40px rgba(255,0,0,.1);
+}
+
+.logo{
+font-size:40px;
+font-weight:bold;
+color:#ff2b2b;
+text-shadow:
+0 0 10px red,
+0 0 20px red,
+0 0 40px red;
+}
+
+nav ul{
+display:flex;
+gap:35px;
+list-style:none;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+nav ul li a{
+text-decoration:none;
+color:white;
+font-size:14px;
+transition:.3s;
+padding:10px 15px;
+border-radius:10px;
+letter-spacing:1px;
+}
+
+nav ul li a:hover{
+background:red;
+color:white;
+box-shadow:
+0 0 10px red,
+0 0 25px red,
+0 0 45px red;
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:60px 8%;
+gap:70px;
+flex-wrap:wrap;
+}
+
+.hero-text{
+flex:1;
+min-width:300px;
+}
+
+.hero-text h3{
+font-size:25px;
+margin-bottom:15px;
+color:#ccc;
+}
+
+.hero-text h1{
+font-size:55px;
+line-height:1.2;
+margin-bottom:25px;
+color:#ff2b2b;
+letter-spacing:2px;
+text-shadow:
+0 0 10px red,
+0 0 20px red,
+0 0 40px red;
+}
+
+.hero-text p{
+color:#b9b9b9;
+line-height:1.8;
+max-width:600px;
+margin-bottom:25px;
+}
+
+.birth{
+display:inline-block;
+padding:14px 20px;
+background:#111;
+border:1px solid rgba(255,0,0,.3);
+border-radius:15px;
+box-shadow:0 0 20px rgba(255,0,0,.25);
+}
+
+/* BUTTON */
+
+.buttons{
+margin-top:35px;
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:15px 28px;
+border-radius:14px;
+text-decoration:none;
+font-size:14px;
+transition:.4s;
+}
+
+.btn-primary{
+background:red;
+color:white;
+box-shadow:
+0 0 10px red,
+0 0 25px red,
+0 0 50px red;
+}
+
+.btn-primary:hover{
+transform:translateY(-5px);
+}
+
+.btn-outline{
+border:1px solid red;
+color:red;
+}
+
+.btn-outline:hover{
+background:red;
+color:white;
+box-shadow:
+0 0 15px red,
+0 0 30px red;
+}
+
+/* HERO CARD */
+
+.hero-image{
+flex:1;
+display:flex;
+justify-content:center;
+min-width:300px;
+}
+
+.card{
+position:relative;
+width:320px;
+height:500px;
+border-radius:30px;
+overflow:hidden;
+background:#111;
+border:2px solid rgba(255,0,0,.4);
+box-shadow:
+0 0 20px rgba(255,0,0,.35),
+0 0 50px rgba(255,0,0,.2);
+}
+
+.card video{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.tag{
+position:absolute;
+padding:12px 18px;
+background:rgba(255,0,0,.2);
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,0,0,.4);
+border-radius:15px;
+font-size:13px;
+box-shadow:0 0 15px rgba(255,0,0,.5);
+}
+
+.tag1{
+top:20px;
+left:20px;
+}
+
+.tag2{
+bottom:20px;
+right:20px;
+}
+
+/* SECTION */
+
+section{
+padding:100px 8%;
+}
+
+.title{
+font-size:50px;
+margin-bottom:50px;
+color:white;
+text-align:center;
+letter-spacing:2px;
+}
+
+.title span{
+color:red;
+text-shadow:
+0 0 10px red,
+0 0 25px red;
+}
+
+/* ABOUT */
+
+.about-box{
+max-width:900px;
+margin:auto;
+background:#0f0f0f;
+padding:50px;
+border-radius:25px;
+border:1px solid rgba(255,0,0,.25);
+box-shadow:
+0 0 20px rgba(255,0,0,.2);
+}
+
+.about-box p{
+line-height:2;
+color:#c8c8c8;
+margin-bottom:30px;
+text-align:center;
+}
+
+.info{
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+.info-card{
+background:#111;
+padding:25px;
+border-radius:20px;
+border:1px solid rgba(255,0,0,.2);
+transition:.4s;
+cursor:pointer;
+}
+
+.info-card:hover{
+transform:scale(1.02);
+box-shadow:
+0 0 15px red,
+0 0 35px rgba(255,0,0,.5);
+}
+
+/* SERVICE */
+
+.service-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:30px;
+}
+
+.service-card{
+background:#0f0f0f;
+padding:40px 25px;
+border-radius:25px;
+border:1px solid rgba(255,0,0,.2);
+transition:.4s;
+cursor:pointer;
+text-align:center;
+}
+
+.service-card:hover{
+transform:translateY(-10px);
+box-shadow:
+0 0 20px red,
+0 0 50px rgba(255,0,0,.5);
+}
+
+/* SKILL */
+
+.skill-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.skill-card{
+position:relative;
+background:#0f0f0f;
+padding:30px;
+border-radius:20px;
+display:flex;
+align-items:center;
+gap:20px;
+border:1px solid rgba(255,0,0,.15);
+cursor:pointer;
+overflow:hidden;
+transition:.4s;
+}
+
+.skill-card:hover{
+transform:scale(1.05);
+border:1px solid red;
+box-shadow:
+0 0 20px red,
+0 0 50px rgba(255,0,0,.7);
+}
+
+.skill-card img{
+width:60px;
+}
+
+/* STORE */
+
+.store-container{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:30px;
+flex-wrap:wrap;
+}
+
+.store-card{
+width:350px;
+background:#0f0f0f;
+border-radius:30px;
+overflow:hidden;
+border:1px solid rgba(255,0,0,.25);
+box-shadow:
+0 0 20px rgba(255,0,0,.2),
+0 0 50px rgba(255,0,0,.1);
+transition:.4s;
+cursor:pointer;
+}
+
+.store-card:hover{
+transform:translateY(-10px);
+box-shadow:
+0 0 20px red,
+0 0 50px rgba(255,0,0,.5);
+}
+
+.store-card img{
+width:100%;
+height:auto;
+display:block;
+object-fit:contain;
+background:#0f0f0f;
+}
+
+.store-content{
+padding:25px;
+text-align:center;
+}
+
+.store-content h2{
+margin-bottom:15px;
+font-size:20px;
+line-height:1.6;
+color:#ff2b2b;
+text-shadow:
+0 0 10px red,
+0 0 20px red;
+}
+
+.store-content p{
+color:#bdbdbd;
+line-height:1.8;
+margin-bottom:25px;
+}
+
+.notice{
+margin-bottom:18px;
+color:#ff2b2b;
+text-shadow:
+0 0 10px red,
+0 0 20px red;
+font-size:14px;
+}
+
+.buy-btn{
+display:inline-block;
+padding:14px 28px;
+background:red;
+border-radius:14px;
+text-decoration:none;
+color:white;
+box-shadow:
+0 0 15px red,
+0 0 35px red;
+transition:.4s;
+}
+
+.buy-btn:hover{
+transform:scale(1.05);
+}
+
+/* CONTACT */
+
+.contact-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:40px;
+}
+
+.contact-box,
+.form-box{
+background:#0f0f0f;
+padding:40px;
+border-radius:25px;
+border:1px solid rgba(255,0,0,.2);
+}
+
+.contact-box h2,
+.form-box h2{
+font-size:45px;
+margin-bottom:20px;
+}
+
+.contact-box span,
+.form-box span{
+color:red;
+text-shadow:
+0 0 10px red,
+0 0 20px red;
+}
+
+.contact-item{
+margin-top:25px;
+padding:20px;
+background:#111;
+border-radius:15px;
+border:1px solid rgba(255,0,0,.2);
+}
+
+.form-box input,
+.form-box textarea{
+width:100%;
+padding:15px;
+margin-top:15px;
+background:#111;
+border:1px solid rgba(255,0,0,.2);
+border-radius:12px;
+color:white;
+outline:none;
+}
+
+.form-box button{
+margin-top:20px;
+width:100%;
+padding:15px;
+background:red;
+border:none;
+border-radius:12px;
+color:white;
+cursor:pointer;
+box-shadow:
+0 0 15px red,
+0 0 35px red;
+}
+
+footer{
+text-align:center;
+padding:40px;
+color:#888;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.logo{
+font-size:30px;
+}
+
+nav{
+padding:18px 20px;
+}
+
+nav ul{
+gap:8px;
+}
+
+nav ul li a{
+font-size:11px;
+padding:8px;
+}
+
+.hero-text h1{
+font-size:38px;
+}
+
+.title{
+font-size:40px;
+}
+
+.card{
+width:100%;
+max-width:320px;
+height:430px;
+}
+
+.store-card{
+width:100%;
+max-width:340px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<nav>
+
+<div class="logo">Rizki.</div>
+
+<ul>
+<li><a href="#home">HOME</a></li>
+<li><a href="#about">ABOUT</a></li>
+<li><a href="#service">SERVICE</a></li>
+<li><a href="#skill">SKILL</a></li>
+<li><a href="#store">STORE</a></li>
+<li><a href="#contact">CONTACT</a></li>
+</ul>
+
+</nav>
+
+</header>
+
+<section class="hero" id="home">
+
+<div class="hero-text">
+
+<h3>Welcome</h3>
+
+<h1>Hello Everyone I'm Rizki</h1>
+
+<p>
+I am a modern web developer focused on building aesthetic,
+responsive, futuristic and premium websites with smooth
+animation and glowing neon UI.
+</p>
+
+<div class="birth">
+🎂 Birth Date : 31 - 08 - 2010
+</div>
+
+<div class="buttons">
+<a href="#skill" class="btn btn-primary">My Skill</a>
+<a href="#contact" class="btn btn-outline">Contact Me</a>
+</div>
+
+</div>
+
+<div class="hero-image">
+
+<div class="card">
+
+<video autoplay muted loop playsinline>
+<source src="https://c.termai.cc/v156/FtpH.mp4" type="video/mp4">
+</video>
+
+<div class="tag tag1">🔥 Responsive</div>
+<div class="tag tag2">💻 Clean Code</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="about">
+
+<h1 class="title">About <span>Me</span></h1>
+
+<div class="about-box">
+
+<p>
+Hi, my name is Rizki. I am a web developer and creative
+designer passionate about building aesthetic and futuristic
+websites with smooth animation and modern UI design.
+</p>
+
+<div class="info">
+
+<div class="info-card">
+<h2>📍 My Location</h2>
+<p>Jambi, Batanghari, Pemayung</p>
+</div>
+
+<div class="info-card">
+<h2>📞 My Phone Number</h2>
+<p>+6283817422338</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="service">
+
+<h1 class="title">My <span>Service</span></h1>
+
+<div class="service-grid">
+
+<div class="service-card">
+<h2>🌐 Web Developer</h2>
+<p>Modern aesthetic website with futuristic UI.</p>
+</div>
+
+<div class="service-card">
+<h2>🎨 UI Design</h2>
+<p>Premium glowing red neon interface design.</p>
+</div>
+
+<div class="service-card">
+<h2>⚡ Responsive</h2>
+<p>Optimized for mobile phone and desktop mode.</p>
+</div>
+
+<div class="service-card">
+<h2>🛡️ Security</h2>
+<p>Secure and smooth modern website structure.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="skill">
+
+<h1 class="title">My <span>Skill</span></h1>
+
+<div class="skill-grid">
+
+<div class="skill-card">
+<img src="https://cdn-icons-png.flaticon.com/512/732/732212.png">
+<h2>HTML</h2>
+</div>
+
+<div class="skill-card">
+<img src="https://cdn-icons-png.flaticon.com/512/732/732190.png">
+<h2>CSS</h2>
+</div>
+
+<div class="skill-card">
+<img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png">
+<h2>JavaScript</h2>
+</div>
+
+<div class="skill-card">
+<img src="https://cdn-icons-png.flaticon.com/512/5968/5968853.png">
+<h2>Python</h2>
+</div>
+
+<div class="skill-card">
+<img src="https://cdn-icons-png.flaticon.com/512/174/174881.png">
+<h2>WordPress</h2>
+</div>
+
+</div>
+
+</section>
+
+<section id="store">
+
+<h1 class="title">My <span>Store</span></h1>
+
+<div class="store-container">
+
+<div class="store-card">
+<img src="https://c.termai.cc/i144/0Tw.jpg">
+<div class="store-content">
+<h2>Suntik Channel WhatsApp Bergaransi 30 Hari</h2>
+<p>Modern aesthetic product with premium quality and futuristic style.</p>
+<div class="notice">Mau order produk klik 👇</div>
+<a href="https://wa.me/6283817422338" class="buy-btn">Beli Sekarang</a>
+</div>
+</div>
+
+<div class="store-card">
+<img src="https://c.termai.cc/i174/5ofAN8s.jpg">
+<div class="store-content">
+<h2>Alight Motion Premium</h2>
+<p>Premium editing application with unlocked features and smooth experience.</p>
+<div class="notice">Mau order produk klik 👇</div>
+<a href="https://wa.me/6283817422338" class="buy-btn">Beli Sekarang</a>
+</div>
+</div>
+
+<div class="store-card">
+<img src="https://c.termai.cc/i186/HxMQli.jpg">
+<div class="store-content">
+<h2>Suntik Followers Instagram Garansi 30 Hari</h2>
+<p>Boost followers Instagram dengan proses cepat, aman dan hasil premium.</p>
+<div class="notice">Mau order produk klik 👇</div>
+<a href="https://wa.me/6283817422338" class="buy-btn">Beli Sekarang</a>
+</div>
+</div>
+
+<div class="store-card">
+<img src="https://c.termai.cc/i194/0mrrEv.jpg">
+<div class="store-content">
+<h2>Jasa Pembuatan Website Garansi 1 Bulan</h2>
+<p>Website aesthetic modern dengan desain premium dan responsive.</p>
+<div class="notice">Mau order produk klik 👇</div>
+<a href="https://wa.me/6283817422338" class="buy-btn">Beli Sekarang</a>
+</div>
+</div>
+
+<div class="store-card">
+<img src="https://c.termai.cc/i167/NUVzErf.jpg">
+<div class="store-content">
+<h2>Jasa Pembuatan Logo</h2>
+<p>Logo gaming, esport dan aesthetic dengan kualitas HD premium.</p>
+<div class="notice">Mau order produk klik 👇</div>
+<a href="https://wa.me/6283817422338" class="buy-btn">Beli Sekarang</a>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<div class="contact-container">
+
+<div class="contact-box">
+
+<h2>Contact <span>Me</span></h2>
+
+<p>
+Let's build something great together.
+</p>
+
+<div class="contact-item">
+📱 Whatsapp : +6283817422338
+</div>
+
+<div class="contact-item">
+📍 Jambi, Batanghari, Pemayung
+</div>
+
+</div>
+
+<div class="form-box">
+
+<h2>Send <span>Email</span></h2>
+
+<input type="text" placeholder="Your Name">
+
+<input type="email" placeholder="Your Email">
+
+<textarea rows="5" placeholder="Your Message"></textarea>
+
+<button>Send Message</button>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+© 2026 Rizki Portfolio • All Rights Reserved
+</footer>
+
+</body>
+</html>
